@@ -1,6 +1,6 @@
 ## content of the FAIRplus cookbook landingpage
 
-visit at <https://fairplus.github.io/landingpage>
+(!! NOT YET WORKING: visit at <https://fairplus.github.io/landingpage> !!)
 
 
 ## Using Syna Theme Starter
