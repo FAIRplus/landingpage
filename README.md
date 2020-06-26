@@ -14,6 +14,10 @@ cd landingpage
 docker run --rm -it -v $(pwd):/src -p 1313:1313 klakegg/hugo:0.73.0-ext-alpine server
 ``` 
 
+The docker will continue running. You can stop the server by pressing Ctrl + C (but obviously, the server and the page will be dead, then).
+
+Visit <http://localhost:1313> to see the page live (the docker container has to be running).
+
 ## hugo docker 
 
 available from: https://hub.docker.com/r/klakegg/hugo/
