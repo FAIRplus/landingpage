@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>FAIR Cookbook &#8212; The FAIR cookbook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="canonical" href="https://fairplus.github.io/the-fair-cookbook/content/intro.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FAIR Cookbook Code of Conduct" href="code_of_conduct.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://fairplus.github.io/the-fair-cookbook/content/intro.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="FAIR Cookbook" />
+<meta property="og:description" content="FAIR Cookbook  The FAIR Coobook overview  The FAIR Cookbook is a project aiming at collating protocols for making data FAIR  The FAIR Cookbook is open source an" />
+
+
+<meta name="twitter:card" content="summary">
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">The FAIR cookbook</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="active">
+    <a href="#">FAIR Cookbook</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Get started</p>
+</li>
+  <li class="">
+    <a href="code_of_conduct.html">FAIR Cookbook Code of Conduct</a>
+  </li>
+  <li class="">
+    <a href="license.html">License for this book</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/content/intro.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/FAIRplus/the-fair-cookbook/edit/master/book/content/intro.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#the-fair-coobook-overview" class="nav-link">The FAIR Coobook overview</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#content-and-learning-outcomes" class="nav-link">Content and learning outcomes</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#getting-started" class="nav-link">Getting started</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#installation" class="nav-link">Installation</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#acknowledgements" class="nav-link">Acknowledgements</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/FAIRplus/the-fair-cookbook/edit/master/book/content/intro.md">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="fair-cookbook">
+<h1>FAIR Cookbook<a class="headerlink" href="#fair-cookbook" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-fair-coobook-overview">
+<h2>The FAIR Coobook overview<a class="headerlink" href="#the-fair-coobook-overview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The FAIR Cookbook is a project aiming at collating protocols for making data FAIR</p></li>
+<li><p>The FAIR Cookbook is open source and licensed under CC-BY-4.0</p></li>
+<li><p>The FAIR Coobook is writting using Markdown and deployed using <code class="docutils literal notranslate"><span class="pre">jupyter-tool</span></code></p></li>
+<li><p>The FAIR Cookbook is an activity of the <a class="reference external" href="https://fairplus-project.eu/">FAIRplus project</a> funded by the <span class="xref myst">Innovative Medicine Initiative (IMI)</span> <img alt="" src="../_images/imi-europe.png" /> under grant agreement #802750 (2019-22).</p></li>
+<li><p>The FAIR Cookbook is currently led by:</p>
+<ul>
+<li><p><a class="reference external" href="https://orcid.org/0000-0001-9853-5668">Philippe Rocca-Serra</a> (University of Oxford)</p></li>
+<li><p><a class="reference external" href="https://orcid.org/0000-0001-5306-5690">Susanna-Assunta Sansone</a> (University of Oxford)</p></li>
+<li><p><a class="reference external" href="https://orcid.org/0000-0002-3201-9617">Andrea Splendiani</a> (Novartis)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="content-and-learning-outcomes">
+<h2>Content and learning outcomes<a class="headerlink" href="#content-and-learning-outcomes" title="Permalink to this headline">¶</a></h2>
+<p>Learn how to FAIRify a number of exemplar datasets, putting the FAIR principles in practices; learn about levels and indicators of FAIRness; the maturity model, the technologies and tools available to assess and improve FAIRness; learn about the skills required, as well as the challenges.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>To get started, you may be interested in the following links.
+Here are a few links of interest:</p>
+<ul class="simple">
+<li><p><strong><a class="reference internal" href="features/features.html"><span class="doc std std-doc">Quickstart</span></a></strong> is a quick demo and overview of Jupyter Book.</p></li>
+<li><p><strong><a class="reference external" href="https://jupyterbook.org/guide/01_overview.html">The Jupyter Book Guide</a></strong>
+will step you through the process of configuring and building your own Jupyter Book.</p></li>
+<li><p><strong><a class="reference external" href="https://github.com/fair-cookbook/the-fair-cookbook">The FAIR Cookbook jupyter-book template repo</a></strong> is the template
+repository you’ll use as a start for your Jupyter Book.</p></li>
+<li><p><strong>A demo of the FAIR Book</strong> can be browsed via the sidebar to the left.</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Here’s a brief rundown of how to create your own Jupyter Book using this site. For a more
+complete guide, see <a class="reference external" href="https://jupyterbook.org/guide/01_overview.html">the Jupyter Book guide</a>.</p>
+<ul class="simple">
+<li><p>Fork the FAIR Book jupyter-book template repo</p></li>
+<li><p>Update or Replace the files in <code class="docutils literal notranslate"><span class="pre">content/</span></code> with your own notebooks and markdown files.</p></li>
+<li><p>Update or create the Table of Contents yaml file by editing <code class="docutils literal notranslate"><span class="pre">_data/toc.yaml</span></code>.</p></li>
+<li><p>Generate the Jekyll markdown for your notebooks by running <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span> <span class="pre">docs</span></code></p></li>
+<li><p>Push your changes to a branch on your GitHub fork (or wherever you host your site)!</p></li>
+<li><p>Send a Pull Requests to the remote GitHub repository</p></li>
+</ul>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>FAIR Cookbook is produced thanks to <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Book</span></code>, project originally created by <a class="reference external" href="http://www.samlau.me/">Sam Lau</a> and <a class="reference external" href="https://predictablynoisy.com">Chris Holdgraf</a>
+with support of the <strong>UC Berkeley Data Science Education Program and the Berkeley
+Institute for Data Science</strong>.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="code_of_conduct.html" title="next page">FAIR Cookbook Code of Conduct</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The FAIRplus project members<br/>
+        
+            &copy; Copyright 2020 (CC-BY 4.0).<br/>
+          <div class="extra_footer">
+            This project has received funding from the <a href="https://www.imi.europa.eu/">Innovative Medicines Initiative</a> 2 Joint Undertaking under grant agreement No 802750. This Joint Undertaking receives support from the European Union’s Horizon 2020 research and innovation programme and EFPIA Companies. This communication reflects the views of the authors and neither IMI nor the European Union, EFPIA or any Associated Partners are liable for any use that may be made of the information contained herein. <script>mermaid.init();</script>
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-171697285-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

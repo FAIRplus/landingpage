@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Oncotrack FAIRification recipe &#8212; The FAIR cookbook</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/mystnb.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="canonical" href="https://fairplus.github.io/the-fair-cookbook/content/recipes/oncotrack_raw/rawRecipe-oncotrack.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://fairplus.github.io/the-fair-cookbook/content/recipes/oncotrack_raw/rawRecipe-oncotrack.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Oncotrack FAIRification recipe" />
+<meta property="og:description" content="Oncotrack FAIRification recipe  Ingredients  Metadata model  Oncotrack cohort metadata  Oncotrack drug sensitivity data  Oncotrack metadata template  Vocabulari" />
+
+
+<meta name="twitter:card" content="summary">
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">The FAIR cookbook</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../../intro.html">FAIR Cookbook</a>
+  </li>
+<li class="navbar-special">
+<p class="margin-caption">Get started</p>
+</li>
+  <li class="">
+    <a href="../../code_of_conduct.html">FAIR Cookbook Code of Conduct</a>
+  </li>
+  <li class="">
+    <a href="../../license.html">License for this book</a>
+  </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/recipes/oncotrack_raw/rawRecipe-oncotrack.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/FAIRplus/the-fair-cookbook/edit/master/book/content/recipes/oncotrack_raw/rawRecipe-oncotrack.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#ingredients" class="nav-link">Ingredients</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#objective" class="nav-link">Objective</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-by-step-process" class="nav-link">Step-by-Step Process</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#data-description" class="nav-link">Data Description</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#metadata-etl-pipeline" class="nav-link">Metadata ETL pipeline</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#data-curation" class="nav-link">Data curation</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#drug-name-ontology" class="nav-link">Drug name ontology</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#data-discrepancy" class="nav-link">Data discrepancy</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#data-encoding" class="nav-link">Data encoding</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#data-sharing" class="nav-link">Data sharing</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#summary" class="nav-link">Summary</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#future-plan" class="nav-link">Future plan</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#supplementary-materials" class="nav-link">Supplementary materials</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/FAIRplus/the-fair-cookbook/edit/master/book/content/recipes/oncotrack_raw/rawRecipe-oncotrack.md">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="oncotrack-fairification-recipe">
+<h1>Oncotrack FAIRification recipe<a class="headerlink" href="#oncotrack-fairification-recipe" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ingredients">
+<h2>Ingredients<a class="headerlink" href="#ingredients" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Metadata model</p>
+<ul>
+<li><p><a class="reference external" href="https://drive.google.com/open?id=13xmazrUUWaCZVooL8d3HXZg7URfVlupM">Oncotrack cohort metadata</a></p></li>
+<li><p><a class="reference external" href="https://drive.google.com/file/d/166IlLr-kZLBPoGLkxEyp7cLw8KFKtN1_/view?usp=sharing">Oncotrack drug sensitivity data</a></p></li>
+<li><p><a class="reference external" href="https://docs.google.com/document/d/1OXSQsZbw2EEZOZrrXJIaJpsb60Y3-4N4W-wu9LX5oa8/edit?usp=sharing">Oncotrack metadata template</a></p></li>
+</ul>
+</li>
+<li><p>Vocabularies and terminologies</p>
+<ul>
+<li><p>Pharmaceutical drug names follow the nomenclature of ChEBI and ChEMBL database. All drug ontologies are listed <a class="reference external" href="https://drive.google.com/open?id=1kYH76-3K3mkz6wfTydFoT_UPf8WP0fe_">here</a>.</p></li>
+<li><p>All abbreviations and acronyms used in OncoTrack cohort metadata are listed in the <a class="reference external" href="https://drive.google.com/open?id=1voD6FGHVyHUgZEHFRfzh_HlTQa7CvW5-MtheGhydDAg">OncoTrack public metadata acronym table</a>.</p></li>
+</ul>
+</li>
+<li><p>Data format</p>
+<ul>
+<li><p>Input data: Excel</p></li>
+<li><p>Output data:</p>
+<ul>
+<li><p>tab-delimited text file</p></li>
+<li><p>JSON file (JSON schema: <a class="reference external" href="https://drive.google.com/open?id=1DoyOZ1uMFv0aPpAQUPkf7mS8vAoS6DCY">BioSamples databases JSON schema</a>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Tools and software</p>
+<ul>
+<li><p>Metadata extract and transform tool: R (Version 3.6.1)</p>
+<ul>
+<li><p>String parsing: R package stringi_1.4.3, stringr_1.4.0</p></li>
+<li><p>Excel file Loading: readxl_1.3.1</p></li>
+<li><p>Data structure transform:plyr_1.8.4</p></li>
+<li><p>JSON format parsing: rjson_0.2.20</p></li>
+</ul>
+</li>
+<li><p>JSON schema validator: <a class="reference external" href="https://github.com/elixir-europe/json-schema-validator">Elixir JSON schema validator</a></p></li>
+<li><p>Ontology mapping: <a class="reference external" href="https://www.ebi.ac.uk/spot/zooma/">ZOOMA</a></p></li>
+<li><p>File Integrity check: md5sum (GNU coreutils) 8.28</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<p>This FAIRification pipeline converts the OncoTrack sample metadata to a structured and consistent data format, improves the findability, interoperability, and reusability of the metadata. The FAIRified metadata provides an enriched context to other Oncotrack derived datasets.</p>
+</div>
+<div class="section" id="step-by-step-process">
+<h2>Step-by-Step Process<a class="headerlink" href="#step-by-step-process" title="Permalink to this headline">¶</a></h2>
+<p>The FAIRification of Oncotrack metadata includes four steps, accessing the data, metadata extraction, transform and load(ETL) pipeline, data curation and data sharing. (Figure 1)</p>
+<p><img alt="alt_text" src="../../../_images/image_02.png" /></p>
+<p><em>Figure 1: OncoTrack metadata FAIRification pipeline</em></p>
+<div class="section" id="data-description">
+<h3>Data Description<a class="headerlink" href="#data-description" title="Permalink to this headline">¶</a></h3>
+<p>The OncoTrack colorectal carcinoma (CRC) biobank includes patient tumour samples, patient derived xenograft models (PDX) and patient-derived 3D  cell models (PDO) from 106 patients. Multi-omics experiments and various drug sensitivity studies have been performed on the CRC biobank.</p>
+<p>The<a class="reference external" href="http://www.oncotrack.eu/home/index.html"> OncoTrack</a> sample metadata includes published sample metadata, drug sensitivity experiment results, and private cohort information. Here, we focus on the FAIRification of the public sample metadata. Drug sensitivity, as an important property of the patient-derived 3D cell culture models, is also included. The metadata is published on<a class="reference external" href="https://www.nature.com/articles/ncomms14262#Sec54"> Schütte, et al</a>. Annotations to the metadata are stored in<a class="reference external" href="https://owncloud.lcsb.uni.lu/apps/files/?dir=/ONCOTRACK&amp;fileid=10738223"> OwnCloud</a> with controlled access.</p>
+<p>The original cohort metadata is stored in an Excel spreadsheet. Figure 2 is an example of the cohort metadata. Each sample is listed as a separate row in the spreadsheet. Sample attributes are listed in columns. The sample names follow the<a class="reference external" href="https://drive.google.com/file/d/1qTQ4cYsmD3AN9XYRxpwayOerc78LUzq6/view?usp=sharing"> OncoTrack identifier system guidelines</a>, which consists of patient ID, tumour type, and patient-derived cell culture model ID. For example,_ Sample “150_MET1_XEN2”_ represents <em>“The second xenograft culture of the first metastatic tumour sample in Patient 150.”</em></p>
+<p><img alt="alt_text" src="../../../_images/image_11.png" /></p>
+<p><em>Figure 2: Example of OncoTrack public cohort metadata</em></p>
+<p>The drug sensitivity data is also provided in Excel spreadsheets. Seventeen drugs are tested on patient-derived organoid(PDO) and patient-derived xenografts(PDX) models in five sets of experiments. Different sets have their unique measurement methods, drug response scales. For example, in <em>Sheet 1: PDO drug response</em> experiment, IC50 value is measured and defines the drug <em>response category</em> (Figure 3a). In <em>Sheet 2: PDX drug response test</em>, the <em>response evaluation criteria in solid tumours (<strong>RECIST</strong>)</em> scales defines the_ drug response category_ (Figure 3b). In both examples, the _drug response category _is marked by colour codes.</p>
+<p><img alt="alt_text" src="../../../_images/image_2.png" /></p>
+<p><img alt="alt_text" src="../../../_images/image_31.png" /></p>
+<p><em>Figure 3: Example of Oncotrack drug response data</em></p>
+</div>
+<div class="section" id="metadata-etl-pipeline">
+<h3>Metadata ETL pipeline<a class="headerlink" href="#metadata-etl-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>The frequent use of acronyms and abbreviations in Oncotrack metadata and the inconsistent metadata structures make it difficult to interpret and reuse. To extract and annotate the metadata, the data owner and data curators first agreed on the structure and content of the FAIRified metadata, as well as the principles in metadata extraction.</p>
+<p>Firstly, all missing values in the metadata shall be marked with _NAs _instead of being removed, to facilitate cross-sample comparisons. Secondly, all acronyms and abbreviations shall be expanded to their full forms to avoid ambiguity. Thirdly, the sample attribute values shall correspond to ontology terms if applicable. The final sample metadata template can be found<a class="reference external" href="https://docs.google.com/document/d/1OXSQsZbw2EEZOZrrXJIaJpsb60Y3-4N4W-wu9LX5oa8/edit"> here</a>.</p>
+<p>The cohort metadata was converted to a<a class="reference external" href="https://docs.google.com/document/d/1pBjRe7rWO4xsUIVecIgxOm_SJaMWeWf8KBrsDTDVAmg/edit?usp=sharing"> tab-delimited table</a>, of which each row represents one sample, and each column represents one sample attribute. 144 samples from 106 patients were extracted, including 35 organoids and 59 xenografts. Tumour type and sample origin information was retrieved from the sample name. The disease name <em>“colon and rectal cancer”</em> was replaced with ontology term<a class="reference external" href="http://www.ebi.ac.uk/efo/EFO_0005842"> “Colorectal cancer”</a>. Figure 4 is an example of the extracted cohort metadata.</p>
+<p><img alt="alt_text" src="../../../_images/image_4.png" /></p>
+<p><em>Figure 4: Example of the extracted cohort metadata</em></p>
+<p>Drug sensitivity data were also extracted from the original spreadsheets. Each drug test per sample was listed as one entry. To coordinate different measurement approaches and response category scales, all drug sensitivity data were converted to a unified representation. All the measurement results were stored in Attribute <em>“Value”</em>, the drug response categorizes criteria were stored in Attribute <em>“Unit”,</em> and the _drug response category _was recalculated and stored in Attribute <em>“Response”.</em> Figure 5 is an example of the extracted drug sensitivity data. 1829 drug tests were extracted in total. The drug response summary is <a class="reference external" href="https://drive.google.com/file/d/1BNkuLtKUsqoAPJqDKqdhj2xYAhuxhQkf/view?usp=sharing">here</a>.</p>
+<p><img alt="alt_text" src="../../../_images/image_51.png" /></p>
+<p><em>Figure 5: Example of extracted drug sensitivity data</em></p>
+<p>To associate drug sensitivity data with related sample cohort metadata and convert them to machine-readable formats, we combined cohort metadata and drug sensitivity data to JSON files. The<a class="reference external" href="https://drive.google.com/file/d/1DoyOZ1uMFv0aPpAQUPkf7mS8vAoS6DCY/view"> BioSamples JSON schema</a><span style="text-decoration:underline;"> </span>was used as the sample metadata template, allowing direct submissions to<a class="reference external" href="https://www.ebi.ac.uk/biosamples/"> BioSamples database</a> and can be easily converted to other formats, like XML, spreadsheets, etc.</p>
+<p>The BioSamples JSON schema includes four blocks, submission metadata( e.g. submission domain, release date, update date), administrative metadata, (e.g. contacts, affiliations), general sample metadata (sample names, species, etc) and sample characteristics. All information is stored in key: value pairs. In sample characteristics, only data with flatten structure is accepted.</p>
+<p>All cohort metadata and drug sensitivity data of each sample were combined into separate JSON files, named after the original sample identifier.</p>
+<p>BioSamples JSON schema only supports strings as value types. Therefore, complex data, for example, drug sensitivity data, need additional parsing to fit into the schema. For each drug response experiments, four descriptive attributes were “<em>Drug Name</em>”, “<em>Value</em>”, “<em>Unit</em>” and “<em>Drug response level</em>” provided. To convert them to key: value pairs, the “<em>drug name</em>” was kept as part of the attribute key. “Value”, “Unit” and “Drug response level” information were joint into one string. For example, the drug response of _regorafenib in Sample 302_MET_CELL_XEN _(Figure 6) was converted to <em>“Drug response(regorafenib): Minor response, IC50(µM) = 29”.</em> For drugs that were tested more than once, a replicate ID was added to the attribute key.</p>
+<p>Administrative information was also added to each JSON object, including institute, project name, and project website. Contact details were not provided, which needs further confirmation from the data owners.</p>
+<p>All transformed metadata was validated against BioSamples schema with the<a class="reference external" href="https://github.com/elixir-europe/json-schema-validator"> Elixir JSON validator</a><span style="text-decoration:underline;">,</span> which is based on AJV with additional life science keyword validation.</p>
+</div>
+<div class="section" id="data-curation">
+<h3>Data curation<a class="headerlink" href="#data-curation" title="Permalink to this headline">¶</a></h3>
+<p>Data curation was implemented to increase the findability of the extracted metadata, including ontology mapping, encoding, and fixing data discrepancy.</p>
+<div class="section" id="drug-name-ontology">
+<h4>Drug name ontology<a class="headerlink" href="#drug-name-ontology" title="Permalink to this headline">¶</a></h4>
+<p>Different types of drug names were used in the original drug sensitivity data, including generic names, trade names and their chemical names. Some in-development drugs were labelled by their company code. All drug names were mapped to a standardized nomenclature, together with ontology annotations, to increase the findability of drug response results.</p>
+<p>The popular drug nomenclatures include International Nonproprietary Names (INNs), <a class="reference external" href="https://www.drugbank.ca/">DrugBank</a><span style="text-decoration:underline;"> </span>names, Chemical Entities of Biological Interest (<a class="reference external" href="https://www.ebi.ac.uk/chebi/">ChEBI</a>) database identifiers, and bioactivity database,<a class="reference external" href="https://www.ebi.ac.uk/chembl/"> ChEMBL</a><span style="text-decoration:underline;"> i</span>dentifiers. Among them, the ChEBI database cover most drugs in OncoTrack, is easy to access and has been curated as an ontology source in Open Biomedical Ontology (OBO). Hence, the drug names in ChEBI was selected as the primary drug names. For drugs or active compounds that were not included in ChEBI, their names in ChEMBL were selected.</p>
+<p>The OncoTrack drug names were mapped to corresponding ontology terms in ChEBI and ChEMBL using ZOOMA. ZOOMA is an ontology annotation tool, which maps free texts to ontology terms based on a curated repository of annotation knowledge. In OncoTrack drug name mapping, only ChEBI and ChEMBL were selected as ontology sources, and all curation sources except GWAS were selected to improve the coverage and increase the mapping confidence. Figure 6 is an example of the ZOOMA mapping output. Only entries with high mapping confidences were selected. The rest were mapped manually to terms in ChEBI databases. Among all 17 drugs, Drug “BI 860585” didn’t map to any pharmaceutical terms, so the original name was kept. The complete mapping results are listed<a class="reference external" href="https://drive.google.com/open?id=1kYH76-3K3mkz6wfTydFoT_UPf8WP0fe_"> here</a>.</p>
+<p><img alt="alt_text" src="../../../_images/image_6.jpg" /></p>
+<p><em>Figure 6: Example of  ZOOMA ontology mapping results</em></p>
+</div>
+<div class="section" id="data-discrepancy">
+<h4>Data discrepancy<a class="headerlink" href="#data-discrepancy" title="Permalink to this headline">¶</a></h4>
+<p>Discrepancy and errors were found in the published metadata. In the cohort metadata, the tumour purity of sample “150_MET1”, “208_MET1”, “209_MET2” and “209_T2” were wrongly labelled. We compared these entries with the original records in the OncoTrack database and found discrepancies between the published metadata and Oncotrack database records. Those values were removed from extracted data until further confirmation from the data owner. The updated cohort metadata is <a class="reference external" href="https://drive.google.com/open?id=13xmazrUUWaCZVooL8d3HXZg7URfVlupM">here</a>.  In drug response metadata extraction, we recalculated the drug response level and found one error in <em>cetuximab</em> drug response level. The corrected drug response data is <a class="reference external" href="https://drive.google.com/open?id=166IlLr-kZLBPoGLkxEyp7cLw8KFKtN1_">here</a>.</p>
+</div>
+<div class="section" id="data-encoding">
+<h4>Data encoding<a class="headerlink" href="#data-encoding" title="Permalink to this headline">¶</a></h4>
+<p>Special letters were converted to ASCII encoding to avoid mojibake. All the “µM”s in drug sensitivity data were converted to “microM”.</p>
+</div>
+</div>
+<div class="section" id="data-sharing">
+<h3>Data sharing<a class="headerlink" href="#data-sharing" title="Permalink to this headline">¶</a></h3>
+<p>The curated metadata, both in summary spreadsheet format and JSON format, were uploaded to Owncloud and Google drive. The OncoTrack sample metadata can be submitted directly to the EMBL BioSamples database upon request. Supplementary figure 1 is an example of how the metadata will be displayed in the BioSamples database. Checksums were also provided to verify metadata integrity.</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>The public cohort metadata and drug sensitivity data were converted to tab-delimited summary files. For each sample, corresponding cohort metadata and drug data were combined to a separate JSON file, which can be later loaded to EBI BioSamples database. Metadata were translated to consistent terminologies and linked with ontology terms.</p>
+</div>
+<div class="section" id="future-plan">
+<h2>Future plan<a class="headerlink" href="#future-plan" title="Permalink to this headline">¶</a></h2>
+<p>The current ontology annotation is limited to drug names. Other ontologies can be added upon request. More detailed administrative metadata will be added once getting permission from the OncoTrack consortium. The license will be added according to the drug release policy.</p>
+</div>
+<div class="section" id="supplementary-materials">
+<h2>Supplementary materials<a class="headerlink" href="#supplementary-materials" title="Permalink to this headline">¶</a></h2>
+<p>Script 1: <a class="reference external" href="https://drive.google.com/file/d/1bbMMKZnygZ8kccdnSj2R_BRLDhd0vAS-/view?usp=sharing">Extract_cohort_metadata.R</a></p>
+<p>Script 2: <a class="reference external" href="https://drive.google.com/open?id=1eNxdNFGN7GAw7Z0Cmk0k2BJiMMZ7wbel">Extract_drugResponse_metadata.R</a></p>
+<p>Script 3: <a class="reference external" href="https://drive.google.com/file/d/18Ik3RryhWVFq9_2IIy6k8N-qpnP9Wgm3/view?usp=sharing">Transform to JSON.R</a></p>
+<p>Supplementary figure 1: <a class="reference external" href="https://drive.google.com/open?id=1ALOwGwB2RpWksH4TuGeye8qEnUm0ULVH">Example of Sample 150-MET1-XEN2 in BioSamples database</a></p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The FAIRplus project members<br/>
+        
+            &copy; Copyright 2020 (CC-BY 4.0).<br/>
+          <div class="extra_footer">
+            This project has received funding from the <a href="https://www.imi.europa.eu/">Innovative Medicines Initiative</a> 2 Joint Undertaking under grant agreement No 802750. This Joint Undertaking receives support from the European Union’s Horizon 2020 research and innovation programme and EFPIA Companies. This communication reflects the views of the authors and neither IMI nor the European Union, EFPIA or any Associated Partners are liable for any use that may be made of the information contained herein. <script>mermaid.init();</script>
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-171697285-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
