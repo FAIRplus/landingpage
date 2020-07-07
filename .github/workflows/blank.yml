@@ -25,8 +25,10 @@ jobs:
       run: mkdir $GITHUB_WORKSPACE/_build/
 
     # Runs a single command using the runners shell
+    # to learn more about this docker image, visit https://hub.docker.com/r/rgiessmann/jupyterbook/tags
+    # or https://hub.docker.com/layers/rgiessmann/jupyterbook/latest/images/sha256-9ae3025b3a08ae8e2bca80460cbc28c015f482fba39235da555ca150e0876b0d?context=explore
     - name: Run docker
-      run: docker run --mount type=bind,source=$GITHUB_WORKSPACE/_build,target=/app/_build --mount type=bind,readonly,source=$GITHUB_WORKSPACE/book,target=/app/book --rm rgiessmann/jupyterbook
+      run: docker run --mount type=bind,source=$GITHUB_WORKSPACE/_build,target=/app/_build --mount type=bind,readonly,source=$GITHUB_WORKSPACE/book,target=/app/book --rm rgiessmann/jupyterbook@sha256:9ae3025b3a08ae8e2bca80460cbc28c015f482fba39235da555ca150e0876b0d
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
