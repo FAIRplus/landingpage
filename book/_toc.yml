@@ -3,3 +3,9 @@
 - header: Get started
 - file: content/code_of_conduct
 - file: content/license
+
+- header: Notebooks
+- file: content/Contributing
+- file: content/1/testnb/0-rose-metabolites-Python-data-handling
+- file: content/1/testnb/1-rose-metabolites-Python-analysis.ipynb 
+- file: content/disclaimer
